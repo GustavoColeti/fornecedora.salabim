@@ -3,120 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShoppingHub - Página Inicial</title>
+    <title>AtacadoCentral - Abasteça seu Estoque</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <header class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Shopping<span>Hub</span></a>
+            <a href="index.html" class="logo">Atacado<span>Central</span></a>
             <div class="search-bar">
-                <input type="text" placeholder="O que você está procurando hoje?">
+                <input type="text" placeholder="Busque por fornecedores, produtos ou SKU de estoque...">
                 <button class="search-btn">🔍</button>
             </div>
             <div class="nav-icons">
-                <a href="#" class="cart-icon">🛒 <span class="badge">3</span></a>
+                <a href="login.html" class="nav-link-btn">Área do Comprador (CNPJ)</a>
+                <a href="#" class="cart-icon">📦 <span class="badge">Lotes</span></a>
             </div>
         </div>
     </header>
 
     <section class="container mt-2">
-        <div class="hero-banner">
+        <div class="hero-banner b2b-hero">
             <div class="hero-text">
-                <span class="tag">Novidades</span>
-                <h1>Encontre tudo o que precisa em um só lugar</h1>
-                <p>As melhores ofertas, produtos exclusivos e navegação simples.</p>
-                <a href="catalog.html" class="btn-primary">Explorar Catálogo</a>
+                <span class="tag bg-orange">Exclusivo para Lojistas</span>
+                <h1>Direto da Fábrica para o seu Estoque</h1>
+                <p>Preços competitivos em escala, faturamento no boleto e frete compartilhado para sua empresa.</p>
+                <a href="catalog.html" class="btn-primary">Ver Catálogo de Lotes</a>
             </div>
             <div class="hero-image-placeholder">
-                [ Imagem de Destaque ]
+                [ Painel de Distribuição / Estoque ]
             </div>
-        </div>
-    </section>
-
-    <section class="container mt-4">
-        <h2 class="section-title">Navegue por Categorias</h2>
-        <div class="categories-grid">
-            <a href="catalog.html" class="category-card">
-                <div class="category-icon font-blue">💻</div>
-                <span>Eletrónicos</span>
-            </a>
-            <a href="catalog.html" class="category-card">
-                <div class="category-icon font-green">👕</div>
-                <span>Vestuário</span>
-            </a>
-            <a href="catalog.html" class="category-card">
-                <div class="category-icon font-amber">🏠</div>
-                <span>Casa e Decoração</span>
-            </a>
-            <a href="catalog.html" class="category-card">
-                <div class="category-icon font-purple">🛠️</div>
-                <span>Serviços</span>
-            </a>
         </div>
     </section>
 
     <section class="container mt-4 mb-4">
-        <h2 class="section-title">Produtos em Destaque</h2>
+        <h2 class="section-title">Lotes em Destaque para Revenda</h2>
         <div class="products-grid">
             
-            <div class="product-card">
+            <div class="product-card b2b-card">
                 <div class="product-img-slot">
-                    [ Imagem ]
-                    <span class="discount-tag">-15%</span>
+                    [ Imagem do Lote ]
+                    <span class="discount-tag">Mais Vendido</span>
                 </div>
                 <div class="product-info">
-                    <span class="product-cat">Eletrónicos</span>
-                    <h3 class="product-title">Fone de Ouvido Wireless Premium ANC</h3>
-                    <div class="stars">★★★★★ <span class="reviews">(42)</span></div>
+                    <span class="product-cat">Eletrônicos (SKU-8492)</span>
+                    <h3 class="product-title">Caixa Master: Fone de Ouvido Wireless Premium (50 Unidades)</h3>
+                    <div class="b2b-badge">Pedido Mínimo: 1 Cx</div>
                     <div class="product-price-row">
-                        <span class="price">R$ 299,90</span>
-                        <span class="old-price">R$ 349,90</span>
+                        <span class="price">R$ 4.995,00</span>
+                        <p class="unit-price">Saindo a R$ 99,90 por unidade</p>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Detalhes</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-img-slot">[ Imagem ]</div>
+            <div class="product-card b2b-card">
+                <div class="product-img-slot">[ Imagem do Lote ]</div>
                 <div class="product-info">
-                    <span class="product-cat">Casa</span>
-                    <h3 class="product-title">Luminária Inteligente RGB Wi-Fi</h3>
-                    <div class="stars">★★★★☆ <span class="reviews">(18)</span></div>
+                    <span class="product-cat">Vestuário (SKU-1102)</span>
+                    <h3 class="product-title">Lote Mix Camisetas Básicas Algodão (100 Unidades - Grade P ao GG)</h3>
+                    <div class="b2b-badge">Pedido Mínimo: 1 Lote</div>
                     <div class="product-price-row">
-                        <span class="price">R$ 124,00</span>
+                        <span class="price">R$ 2.200,00</span>
+                        <p class="unit-price">Saindo a R$ 22,00 por unidade</p>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Detalhes</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-img-slot">[ Imagem ]</div>
+            <div class="product-card b2b-card">
+                <div class="product-img-slot">[ Imagem do Lote ]</div>
                 <div class="product-info">
-                    <span class="product-cat">Vestuário</span>
-                    <h3 class="product-title">Mochila Urbana Impermeável</h3>
-                    <div class="stars">★★★★★ <span class="reviews">(89)</span></div>
+                    <span class="product-cat">Embalagens (SKU-4412)</span>
+                    <h3 class="product-title">Palete de Sacolas Kraft p/ Delivery (1.000 Unidades)</h3>
+                    <div class="b2b-badge">Pedido Mínimo: 2 Paletes</div>
                     <div class="product-price-row">
-                        <span class="price">R$ 189,90</span>
+                        <span class="price">R$ 850,00</span>
+                        <p class="unit-price">Saindo a R$ 0,85 por unidade</p>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Detalhes</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-card b2b-card">
                 <div class="product-img-slot">
-                    [ Imagem ]
-                    <span class="free-shipping">Frete Grátis</span>
+                    [ Imagem do Lote ]
+                    <span class="free-shipping">Frete FOB/CIF</span>
                 </div>
                 <div class="product-info">
-                    <span class="product-cat">Eletrónicos</span>
-                    <h3 class="product-title">Teclado Mecânico RGB Switch Blue</h3>
-                    <div class="stars">★★★★☆ <span class="reviews">(31)</span></div>
+                    <span class="product-cat">Iluminação (SKU-9901)</span>
+                    <h3 class="product-title">Caixa Fechada: Lâmpadas LED Bulbo 9W (200 Unidades)</h3>
+                    <div class="b2b-badge">Pedido Mínimo: 1 Cx</div>
                     <div class="product-price-row">
-                        <span class="price">R$ 245,00</span>
+                        <span class="price">R$ 1.100,00</span>
+                        <p class="unit-price">Saindo a R$ 5,50 por unidade</p>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Detalhes</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
                 </div>
             </div>
 
@@ -124,7 +106,7 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 ShoppingHub. Interface puramente visual e demonstrativa.</p>
+        <p>&copy; 2026 AtacadoCentral S.A. Plataforma Exclusiva para Pessoas Jurídicas.</p>
     </footer>
 
 </body>
