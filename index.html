@@ -4,101 +4,477 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AtacadoCentral - Abasteça seu Estoque</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TOPO DO SITE (NAVBAR) */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0284c7;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #0f172a;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 550px;
+            position: relative;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .search-bar input:focus {
+            background-color: #ffffff;
+            border-color: #0284c7;
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-cnpj {
+            text-decoration: none;
+            color: #0284c7;
+            font-weight: 600;
+            font-size: 14px;
+            border: 2px solid #e2e8f0;
+            padding: 10px 16px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-cnpj:hover {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+        }
+
+        .cart-icon {
+            text-decoration: none;
+            font-size: 14px;
+            color: #334155;
+            background-color: #f1f5f9;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* BANNER PRINCIPAL (HERO) */
+        .hero-section {
+            margin-top: 32px;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 16px;
+            padding: 48px;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .tag-b2b {
+            background-color: #f97316;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 16px;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .btn-primary {
+            background-color: #0284c7;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0369a1;
+        }
+
+        .hero-image-placeholder {
+            width: 320px;
+            height: 220px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* VITRINE DE PRODUTOS */
+        .showcase-section {
+            margin-top: 48px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .product-img-slot {
+            background-color: #f8fafc;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-style: italic;
+            font-size: 13px;
+            position: relative;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .badge-status {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #1e293b;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-cat {
+            font-size: 11px;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.4;
+            height: 42px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .b2b-badge-minimum {
+            background-color: #f0f9ff;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            align-self: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .price-wrapper {
+            border-top: 1px solid #f1f5f9;
+            padding-top: 12px;
+            margin-top: auto;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #64748b;
+            display: block;
+        }
+
+        .price-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .unit-price-calc {
+            font-size: 13px;
+            color: #16a34a;
+            font-weight: 600;
+            margin-top: 4px;
+            display: block;
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 10px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 16px;
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #0284c7;
+        }
+
+        /* RODAPÉ (FOOTER) */
+        .footer {
+            background-color: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 0;
+            text-align: center;
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 64px;
+        }
+    </style>
 </head>
 <body>
 
     <header class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">Atacado<span>Central</span></a>
+            
             <div class="search-bar">
-                <input type="text" placeholder="Busque por fornecedores, produtos ou SKU de estoque...">
+                <input type="text" placeholder="Busque por produtos, SKU ou linhas de estoque...">
                 <button class="search-btn">🔍</button>
             </div>
-            <div class="nav-icons">
-                <a href="login.html" class="nav-link-btn">Área do Comprador (CNPJ)</a>
-                <a href="#" class="cart-icon">📦 <span class="badge">Lotes</span></a>
+            
+            <div class="nav-actions">
+                <a href="login.html" class="btn-cnpj">Portal do Comprador (CNPJ)</a>
+                <a href="#" class="cart-icon">📦 Lotes de Estoque</a>
             </div>
         </div>
     </header>
 
-    <section class="container mt-2">
-        <div class="hero-banner b2b-hero">
+    <section class="container hero-section">
+        <div class="hero-banner">
             <div class="hero-text">
-                <span class="tag bg-orange">Exclusivo para Lojistas</span>
+                <span class="tag-b2b">Exclusivo para Revendedores</span>
                 <h1>Direto da Fábrica para o seu Estoque</h1>
-                <p>Preços competitivos em escala, faturamento no boleto e frete compartilhado para sua empresa.</p>
-                <a href="catalog.html" class="btn-primary">Ver Catálogo de Lotes</a>
+                <p>Abasteça sua empresa com preços competitivos em escala, faturamento flexível no boleto bancário e logística simplificada para todo o país.</p>
+                <a href="catalog.html" class="btn-primary">Ver Todos os Lotes</a>
             </div>
             <div class="hero-image-placeholder">
-                [ Painel de Distribuição / Estoque ]
+                <span>[ Área de Distribuição ]</span>
             </div>
         </div>
     </section>
 
-    <section class="container mt-4 mb-4">
-        <h2 class="section-title">Lotes em Destaque para Revenda</h2>
+    <section class="container showcase-section">
+        <h2 class="section-title">Lotes Recomendados para Reposição</h2>
+        
         <div class="products-grid">
             
-            <div class="product-card b2b-card">
+            <div class="product-card">
                 <div class="product-img-slot">
-                    [ Imagem do Lote ]
-                    <span class="discount-tag">Mais Vendido</span>
+                    <span>[ Foto do Lote ]</span>
+                    <span class="badge-status">Mais Buscado</span>
                 </div>
                 <div class="product-info">
-                    <span class="product-cat">Eletrônicos (SKU-8492)</span>
-                    <h3 class="product-title">Caixa Master: Fone de Ouvido Wireless Premium (50 Unidades)</h3>
-                    <div class="b2b-badge">Pedido Mínimo: 1 Cx</div>
-                    <div class="product-price-row">
-                        <span class="price">R$ 4.995,00</span>
-                        <p class="unit-price">Saindo a R$ 99,90 por unidade</p>
+                    <span class="product-cat">Eletrônicos • SKU-8492</span>
+                    <h3 class="product-title">Caixa Master: Fone de Ouvido Wireless Premium ANC (50 Unidades)</h3>
+                    <div class="b2b-badge-minimum">Pedido Mínimo: 1 Cx</div>
+                    
+                    <div class="price-wrapper">
+                        <span class="price-label">Preço do Lote Fechado:</span>
+                        <span class="price-value">R$ 4.995,00</span>
+                        <span class="unit-price-calc">Saindo a R$ 99,90 por unidade</span>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Volumes</a>
                 </div>
             </div>
 
-            <div class="product-card b2b-card">
-                <div class="product-img-slot">[ Imagem do Lote ]</div>
+            <div class="product-card">
+                <div class="product-img-slot">
+                    <span>[ Foto do Lote ]</span>
+                </div>
                 <div class="product-info">
-                    <span class="product-cat">Vestuário (SKU-1102)</span>
+                    <span class="product-cat">Vestuário • SKU-1102</span>
                     <h3 class="product-title">Lote Mix Camisetas Básicas Algodão (100 Unidades - Grade P ao GG)</h3>
-                    <div class="b2b-badge">Pedido Mínimo: 1 Lote</div>
-                    <div class="product-price-row">
-                        <span class="price">R$ 2.200,00</span>
-                        <p class="unit-price">Saindo a R$ 22,00 por unidade</p>
+                    <div class="b2b-badge-minimum">Pedido Mínimo: 1 Lote</div>
+                    
+                    <div class="price-wrapper">
+                        <span class="price-label">Preço do Lote Fechado:</span>
+                        <span class="price-value">R$ 2.200,00</span>
+                        <span class="unit-price-calc">Saindo a R$ 22,00 por unidade</span>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Volumes</a>
                 </div>
             </div>
 
-            <div class="product-card b2b-card">
-                <div class="product-img-slot">[ Imagem do Lote ]</div>
-                <div class="product-info">
-                    <span class="product-cat">Embalagens (SKU-4412)</span>
-                    <h3 class="product-title">Palete de Sacolas Kraft p/ Delivery (1.000 Unidades)</h3>
-                    <div class="b2b-badge">Pedido Mínimo: 2 Paletes</div>
-                    <div class="product-price-row">
-                        <span class="price">R$ 850,00</span>
-                        <p class="unit-price">Saindo a R$ 0,85 por unidade</p>
-                    </div>
-                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
-                </div>
-            </div>
-
-            <div class="product-card b2b-card">
+            <div class="product-card">
                 <div class="product-img-slot">
-                    [ Imagem do Lote ]
-                    <span class="free-shipping">Frete FOB/CIF</span>
+                    <span>[ Foto do Lote ]</span>
                 </div>
                 <div class="product-info">
-                    <span class="product-cat">Iluminação (SKU-9901)</span>
-                    <h3 class="product-title">Caixa Fechada: Lâmpadas LED Bulbo 9W (200 Unidades)</h3>
-                    <div class="b2b-badge">Pedido Mínimo: 1 Cx</div>
-                    <div class="product-price-row">
-                        <span class="price">R$ 1.100,00</span>
-                        <p class="unit-price">Saindo a R$ 5,50 por unidade</p>
+                    <span class="product-cat">Embalagens • SKU-4412</span>
+                    <h3 class="product-title">Palete de Sacolas Kraft p/ Delivery Comercial (1.000 Unidades)</h3>
+                    <div class="b2b-badge-minimum">Pedido Mínimo: 2 Paletes</div>
+                    
+                    <div class="price-wrapper">
+                        <span class="price-label">Preço do Lote Fechado:</span>
+                        <span class="price-value">R$ 850,00</span>
+                        <span class="unit-price-calc">Saindo a R$ 0,85 por unidade</span>
                     </div>
-                    <a href="product.html" class="btn-secondary">Ver Grade de Preços</a>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Volumes</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-img-slot">
+                    <span>[ Foto do Lote ]</span>
+                    <span class="badge-status">Alta Margem</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">Iluminação • SKU-9901</span>
+                    <h3 class="product-title">Caixa Fechada: Lâmpadas LED Bulbo 9W (200 Unidades)</h3>
+                    <div class="b2b-badge-minimum">Pedido Mínimo: 1 Cx</div>
+                    
+                    <div class="price-wrapper">
+                        <span class="price-label">Preço do Lote Fechado:</span>
+                        <span class="price-value">R$ 1.100,00</span>
+                        <span class="unit-price-calc">Saindo a R$ 5,50 por unidade</span>
+                    </div>
+                    <a href="product.html" class="btn-secondary">Ver Grade de Volumes</a>
                 </div>
             </div>
 
@@ -106,7 +482,7 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 AtacadoCentral S.A. Plataforma Exclusiva para Pessoas Jurídicas.</p>
+        <p>&copy; 2026 AtacadoCentral S.A. Plataforma Exclusiva para Transações entre Pessoas Jurídicas (B2B).</p>
     </footer>
 
 </body>
