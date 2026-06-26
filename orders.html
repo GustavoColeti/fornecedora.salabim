@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtacadoCentral - Histórico de Pedidos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Atacado<span>Central</span></a>
+            <div class="nav-icons">
+                <span class="user-company">Razão Social: <strong>TechLoja LTDA</strong></span>
+                <a href="index.html" class="nav-link-btn out">Sair</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container layout-sidebar mt-3 mb-4">
+        <aside class="sidebar">
+            <h3 class="filter-title">Painel PJ</h3>
+            <div class="panel-menu">
+                <a href="orders.html" class="menu-item active">📦 Meus Pedidos de Estoque</a>
+                <a href="#" class="menu-item">📑 Dados Cadastrais / CNPJ</a>
+                <a href="#" class="menu-item">💳 Limite de Crédito / Faturamento</a>
+                <a href="#" class="menu-item">🚚 Endereços de Entrega</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="results-header">
+                <h2>Histórico de Ordens de Compra</h2>
+            </div>
+
+            <div class="orders-list">
+                
+                <div class="order-item-card">
+                    <div class="order-header-info">
+                        <span><strong>Pedido:</strong> #AC-94821</span>
+                        <span><strong>Data:</strong> 14/05/2026</span>
+                        <span><strong>Status:</strong> <span class="status-badge green">Entregue</span></span>
+                    </div>
+                    <div class="order-body">
+                        <p>1x Caixa Master: Fone de Ouvido Wireless Premium (50 Unidades)</p>
+                        <p>2x Lote Mix Camisetas Básicas Algodão (100 Unidades)</p>
+                    </div>
+                    <div class="order-footer-actions">
+                        <span class="order-total">Total: <strong>R$ 9.395,00</strong></span>
+                        <button class="btn-primary btn-sm">Repor Este Estoque (Refazer Pedido)</button>
+                    </div>
+                </div>
+
+                <div class="order-item-card">
+                    <div class="order-header-info">
+                        <span><strong>Pedido:</strong> #AC-92104</span>
+                        <span><strong>Data:</strong> 02/03/2026</span>
+                        <span><strong>Status:</strong> <span class="status-badge green">Entregue</span></span>
+                    </div>
+                    <div class="order-body">
+                        <p>3x Palete de Sacolas Kraft p/ Delivery (1.000 Unidades)</p>
+                    </div>
+                    <div class="order-footer-actions">
+                        <span class="order-total">Total: <strong>R$ 2.550,00</strong></span>
+                        <button class="btn-primary btn-sm">Repor Este Estoque (Refazer Pedido)</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
