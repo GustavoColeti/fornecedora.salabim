@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtacadoCentral - Detalhe do Lote</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Atacado<span>Central</span></a>
+            <div class="search-bar">
+                <input type="text" placeholder="Procurar mais estoque...">
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-3">
+        <a href="index.html" class="back-link">← Voltar para a vitrine</a>
+    </div>
+
+    <main class="container layout-detail mt-2 mb-4">
+        <div class="detail-gallery">
+            <div class="main-img-slot">[ Foto da Caixa Master / Lote Fechado ]</div>
+        </div>
+
+        <div class="detail-info">
+            <span class="product-cat">SKU-8492 // Eletrônicos</span>
+            <h1 class="detail-title">Fone de Ouvido Wireless Premium ANC (Caixa Fechada com 50 Unidades)</h1>
+            
+            <div class="b2b-notice">⚠️ Venda exclusiva para distribuidores e revendedores (Mínimo de 1 Caixa)</div>
+
+            <div class="specs-table-wrapper mt-2">
+                <h3>Grade de Preços por Volume</h3>
+                <table class="specs-table b2b-table">
+                    <tr class="highlight-row"><td>1 a 4 Caixas</td><td>R$ 4.995,00 / cx</td><td>(R$ 99,90/un)</td></tr>
+                    <tr><td>5 a 9 Caixas</td><td>R$ 4.495,00 / cx</td><td>(R$ 89,90/un)</td></tr>
+                    <tr><td>Acima de 10 Caixas</td><td>R$ 3.995,00 / cx</td><td>(R$ 79,90/un)</td></tr>
+                </table>
+            </div>
+
+            <div class="b2b-action-box mt-2">
+                <label for="quantity">Selecione a quantidade de Caixas:</label>
+                <input type="number" id="quantity" value="1" min="1" class="b2b-input-qty">
+                <button class="btn-buy">Adicionar Lote ao Pedido</button>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
