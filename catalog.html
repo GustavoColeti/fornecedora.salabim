@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingHub - Catálogo de Produtos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Shopping<span>Hub</span></a>
+            <div class="search-bar">
+                <input type="text" value="Eletrónicos" placeholder="O que você está procurando hoje?">
+                <button class="search-btn">🔍</button>
+            </div>
+            <div class="nav-icons">
+                <a href="#" class="cart-icon">🛒 <span class="badge">3</span></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container layout-sidebar mt-3 mb-4">
+        <aside class="sidebar">
+            <h3 class="filter-title">Filtros</h3>
+            
+            <div class="filter-section">
+                <h4>Categorias</h4>
+                <label><input type="checkbox" checked> Eletrónicos</label>
+                <label><input type="checkbox"> Vestuário</label>
+                <label><input type="checkbox"> Casa & Decoração</label>
+            </div>
+
+            <div class="filter-section">
+                <h4>Preço</h4>
+                <label><input type="radio" name="price"> Até R$ 100</label>
+                <label><input type="radio" name="price" checked> R$ 100 a R$ 300</label>
+                <label><input type="radio" name="price"> Acima de R$ 300</label>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div class="results-header">
+                <p>Mostrando 4 resultados para <strong>"Eletrónicos"</strong></p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img-slot">[ Imagem ]</div>
+                    <div class="product-info">
+                        <span class="product-cat">Eletrónicos</span>
+                        <h3 class="product-title">Fone de Ouvido Wireless Premium ANC</h3>
+                        <div class="stars">★★★★★</div>
+                        <div class="product-price-row"><span class="price">R$ 299,90</span></div>
+                        <a href="product.html" class="btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img-slot">[ Imagem ]</div>
+                    <div class="product-info">
+                        <span class="product-cat">Eletrónicos</span>
+                        <h3 class="product-title">Teclado Mecânico RGB Switch Blue</h3>
+                        <div class="stars">★★★★☆</div>
+                        <div class="product-price-row"><span class="price">R$ 245,00</span></div>
+                        <a href="product.html" class="btn-secondary">Ver Detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
