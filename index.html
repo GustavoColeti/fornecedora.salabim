@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtacadoCentral - Abasteça seu Estoque</title>
+    <title>Salabim Atacado - Abasteça seu Estoque</title>
     
     <style>
         /* RESET E CONFIGURAÇÕES GERAIS */
@@ -45,11 +45,11 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 800;
-            color: #0284c7;
+            color: #7c3aed; /* Roxo Moderno da Salabim */
             text-decoration: none;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
         }
 
         .logo span {
@@ -58,7 +58,7 @@
 
         .search-bar {
             flex-grow: 1;
-            max-width: 550px;
+            max-width: 500px;
             position: relative;
             display: flex;
         }
@@ -71,13 +71,12 @@
             border-radius: 8px;
             outline: none;
             font-size: 14px;
-            transition: all 0.2s;
         }
 
         .search-bar input:focus {
             background-color: #ffffff;
-            border-color: #0284c7;
-            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1);
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
         }
 
         .search-btn {
@@ -99,7 +98,7 @@
 
         .btn-cnpj {
             text-decoration: none;
-            color: #0284c7;
+            color: #7c3aed;
             font-weight: 600;
             font-size: 14px;
             border: 2px solid #e2e8f0;
@@ -109,21 +108,66 @@
         }
 
         .btn-cnpj:hover {
-            border-color: #0284c7;
-            background-color: #f0f9ff;
+            border-color: #7c3aed;
+            background-color: #f5f3ff;
         }
 
-        .cart-icon {
+        /* SEÇÃO DE NICHOS (AS CAIXAS NO COMEÇO DO SITE) */
+        .nichos-section {
+            margin-top: 32px;
+        }
+
+        .nichos-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nichos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .nicho-card {
+            background-color: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
             text-decoration: none;
-            font-size: 14px;
-            color: #334155;
-            background-color: #f1f5f9;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            color: #1e293b;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .nicho-card:hover {
+            border-color: #7c3aed;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.1);
+        }
+
+        .nicho-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .nicho-name {
+            font-size: 16px;
+            font-weight: 700;
+            display: block;
+            color: #0f172a;
+        }
+
+        .nicho-qtd {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 4px;
+            display: block;
         }
 
         /* BANNER PRINCIPAL (HERO) */
@@ -132,7 +176,7 @@
         }
 
         .hero-banner {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #1e1b4b 0%, #311042 100%);
             border-radius: 16px;
             padding: 48px;
             color: #ffffff;
@@ -140,7 +184,6 @@
             justify-content: space-between;
             align-items: center;
             gap: 40px;
-            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1);
         }
 
         .hero-text {
@@ -156,7 +199,6 @@
             padding: 6px 12px;
             border-radius: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
             display: inline-block;
             margin-bottom: 16px;
         }
@@ -166,18 +208,16 @@
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 16px;
-            color: #ffffff;
         }
 
         .hero-text p {
-            color: #94a3b8;
+            color: #cbd5e1;
             font-size: 16px;
             margin-bottom: 28px;
-            line-height: 1.6;
         }
 
         .btn-primary {
-            background-color: #0284c7;
+            background-color: #7c3aed;
             color: #ffffff;
             padding: 14px 28px;
             border-radius: 8px;
@@ -185,27 +225,23 @@
             font-weight: 600;
             display: inline-block;
             transition: background 0.2s;
-            border: none;
-            cursor: pointer;
         }
 
         .btn-primary:hover {
-            background-color: #0369a1;
+            background-color: #6d28d9;
         }
 
         .hero-image-placeholder {
             width: 320px;
-            height: 220px;
+            height: 200px;
             background-color: rgba(255, 255, 255, 0.03);
             border: 2px dashed rgba(255, 255, 255, 0.15);
             border-radius: 12px;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: #64748b;
+            color: #94a3b8;
             font-style: italic;
-            font-size: 14px;
         }
 
         /* VITRINE DE PRODUTOS */
@@ -218,9 +254,6 @@
             font-weight: 700;
             color: #0f172a;
             margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .products-grid {
@@ -253,7 +286,6 @@
             justify-content: center;
             color: #94a3b8;
             font-style: italic;
-            font-size: 13px;
             position: relative;
             border-bottom: 1px solid #f1f5f9;
         }
@@ -283,7 +315,6 @@
             text-transform: uppercase;
             font-weight: 600;
             margin-bottom: 6px;
-            letter-spacing: 0.5px;
         }
 
         .product-title {
@@ -297,9 +328,9 @@
         }
 
         .b2b-badge-minimum {
-            background-color: #f0f9ff;
-            color: #0369a1;
-            border: 1px solid #bae6fd;
+            background-color: #f5f3ff;
+            color: #7c3aed;
+            border: 1px solid #ddd6fe;
             font-size: 12px;
             font-weight: 700;
             padding: 4px 8px;
@@ -325,7 +356,6 @@
             font-weight: 800;
             color: #0f172a;
             display: block;
-            margin-top: 2px;
         }
 
         .unit-price-calc {
@@ -348,11 +378,10 @@
             font-size: 14px;
             font-weight: 600;
             margin-top: 16px;
-            transition: background 0.2s;
         }
 
         .btn-secondary:hover {
-            background-color: #0284c7;
+            background-color: #7c3aed;
         }
 
         /* RODAPÉ (FOOTER) */
@@ -371,7 +400,7 @@
 
     <header class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">Atacado<span>Central</span></a>
+            <a href="index.html" class="logo">Sala<span>bim</span></a>
             
             <div class="search-bar">
                 <input type="text" placeholder="Busque por produtos, SKU ou linhas de estoque...">
@@ -380,21 +409,51 @@
             
             <div class="nav-actions">
                 <a href="login.html" class="btn-cnpj">Portal do Comprador (CNPJ)</a>
-                <a href="#" class="cart-icon">📦 Lotes de Estoque</a>
             </div>
         </div>
     </header>
 
+    <section class="container nichos-section">
+        <h3 class="nichos-title">Abastecer por Nicho / Categoria</h3>
+        <div class="nichos-grid">
+            
+            <a href="#" class="nicho-card">
+                <span class="nicho-icon">💻</span>
+                <span class="nicho-name">Eletrônicos</span>
+                <span class="nicho-qtd">Fornecedores Diretos</span>
+            </a>
+
+            <a href="#" class="nicho-card">
+                <span class="nicho-icon">✏️</span>
+                <span class="nicho-name">Material Escolar</span>
+                <span class="nicho-qtd">Preço de Fábrica</span>
+            </a>
+
+            <a href="#" class="nicho-card">
+                <span class="nicho-icon">🧸</span>
+                <span class="nicho-name">Brinquedos</span>
+                <span class="nicho-qtd">Lotes Disponíveis</span>
+            </a>
+
+            <a href="#" class="nicho-card">
+                <span class="nicho-icon">🏠</span>
+                <span class="nicho-name">Utilidades Domésticas</span>
+                <span class="nicho-qtd">Alta Margem de Lucro</span>
+            </a>
+
+        </div>
+    </section>
+
     <section class="container hero-section">
         <div class="hero-banner">
             <div class="hero-text">
-                <span class="tag-b2b">Exclusivo para Revendedores</span>
+                <span class="tag-b2b">Exclusivo para Lojistas e Empresas</span>
                 <h1>Direto da Fábrica para o seu Estoque</h1>
-                <p>Abasteça sua empresa com preços competitivos em escala, faturamento flexível no boleto bancário e logística simplificada para todo o país.</p>
-                <a href="catalog.html" class="btn-primary">Ver Todos os Lotes</a>
+                <p>Abasteça sua empresa na Salabim com preços competitivos em escala, faturamento flexível no boleto bancário e logística simplificada.</p>
+                <a href="#" class="btn-primary">Ver Todos os Lotes</a>
             </div>
             <div class="hero-image-placeholder">
-                <span>[ Área de Distribuição ]</span>
+                <span>[ Painel Salabim Atacado ]</span>
             </div>
         </div>
     </section>
@@ -459,30 +518,11 @@
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="product-img-slot">
-                    <span>[ Foto do Lote ]</span>
-                    <span class="badge-status">Alta Margem</span>
-                </div>
-                <div class="product-info">
-                    <span class="product-cat">Iluminação • SKU-9901</span>
-                    <h3 class="product-title">Caixa Fechada: Lâmpadas LED Bulbo 9W (200 Unidades)</h3>
-                    <div class="b2b-badge-minimum">Pedido Mínimo: 1 Cx</div>
-                    
-                    <div class="price-wrapper">
-                        <span class="price-label">Preço do Lote Fechado:</span>
-                        <span class="price-value">R$ 1.100,00</span>
-                        <span class="unit-price-calc">Saindo a R$ 5,50 por unidade</span>
-                    </div>
-                    <a href="product.html" class="btn-secondary">Ver Grade de Volumes</a>
-                </div>
-            </div>
-
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 AtacadoCentral S.A. Plataforma Exclusiva para Transações entre Pessoas Jurídicas (B2B).</p>
+        <p>&copy; 2026 Salabim Atacado S.A. Plataforma Exclusiva para Transações entre Pessoas Jurídicas (B2B).</p>
     </footer>
 
 </body>
