@@ -3,38 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AtacadoCentral - Login Corporativo</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="bg-dark">
+    <title>Salabim Atacado - Login Corporativo</title>
+    
+    <style>
+        /* RESET E CONFIGURAÇÕES GERAIS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-    <div class="login-container">
-        <div class="login-card">
-            <a href="index.html" class="login-logo">Atacado<span>Central</span></a>
-            <h2>Portal do Comprador</h2>
-            <p>Acesse para visualizar preços de fábrica e condições de faturamento.</p>
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* TOPO DO SITE (NAVBAR) */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            padding: 16px 0;
+            width: 100%;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: #7c3aed; /* Roxo moderno para a marca Salabim */
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #0f172a;
+        }
+
+        /* CAIXAS DE NICHOS / CATEGORIAS */
+        .nicho-container {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nicho-box {
+            text-decoration: none;
+            background-color: #f1f5f9;
+            color: #475569;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .nicho-box:hover {
+            background-color: #7c3aed;
+            color: #ffffff;
+            border-color: #7c3aed;
+        }
+
+        .btn-back {
+            text-decoration: none;
+            color: #64748b;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .btn-back:hover {
+            color: #7c3aed;
+        }
+
+        /* ÁREA DO FORMULÁRIO DE LOGIN */
+        .login-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .login-card {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 420px;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .login-card h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .login-card p {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 32px;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .form-options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .form-options a {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-options a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #7c3aed;
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #6d28d9;
+        }
+
+        .login-footer {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 14px;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 20px;
+        }
+
+        .login-footer a {
+            color: #7c3aed;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Sala<span>bim</span></a>
             
-            <form action="orders.html" class="login-form">
+            <div class="nicho-container">
+                <a href="#" class="nicho-box">💻 Eletrônicos</a>
+                <a href="#" class="nicho-box">✏️ Material Escolar</a>
+                <a href="#" class="nicho-box">🧸 Brinquedos</a>
+                <a href="#" class="nicho-box">🏠 Utilidades</a>
+            </div>
+
+            <a href="index.html" class="btn-back">← Voltar à Vitrine</a>
+        </div>
+    </header>
+
+    <main class="login-wrapper">
+        <div class="login-card">
+            <h2>Portal do Comprador</h2>
+            <p>Acesse com os dados cadastrais da sua empresa para conferir valores de lote e faturamento.</p>
+            
+            <form action="orders.html" method="GET">
                 <div class="form-group">
                     <label for="cnpj">CNPJ da Empresa</label>
                     <input type="text" id="cnpj" placeholder="00.000.000/0001-00" required>
                 </div>
+                
                 <div class="form-group">
                     <label for="password">Senha Corporativa</label>
                     <input type="password" id="password" placeholder="••••••••" required>
                 </div>
-                <div class="form-actions">
-                    <label><input type="checkbox"> Lembrar CNPJ</label>
+                
+                <div class="form-options">
+                    <label>
+                        <input type="checkbox"> Lembrar CNPJ
+                    </label>
                     <a href="#">Esqueceu a senha?</a>
                 </div>
-                <button type="submit" class="btn-primary w-100">Entrar no Painel de Estoque</button>
+                
+                <button type="submit" class="btn-submit">Entrar no Painel de Estoque</button>
             </form>
             
             <div class="login-footer">
-                <p>Sua empresa ainda não tem cadastro? <a href="#">Criar Conta PJ</a></p>
+                <p>Sua empresa é nova aqui? <a href="#">Criar Conta PJ</a></p>
             </div>
         </div>
-    </div>
+    </main>
 
 </body>
 </html>
